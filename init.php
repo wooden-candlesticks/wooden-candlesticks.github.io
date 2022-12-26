@@ -24,5 +24,9 @@
  * @license   https://opensource.org/licenses/OSL-3.0 Open Software License (OSL 3.0)
  */
 
-require dirname(__FILE__).'/config/config.inc.php';
-Dispatcher::getInstance()->dispatch();
+if (isset(Context::getContext()->controller)) {
+    $controller = Context::getContext()->controller;
+} else {
+    $controller = new FrontController();
+    $controller->init();
+}

@@ -24,5 +24,9 @@
  * @license   https://opensource.org/licenses/OSL-3.0 Open Software License (OSL 3.0)
  */
 
-require dirname(__FILE__).'/config/config.inc.php';
-Dispatcher::getInstance()->dispatch();
+/**
+ * Allow call of Legacy classes from classes in /src and /tests
+ * @see composer.json "files" property for custom autoloading
+ */
+require_once __DIR__.'/config/defines.inc.php';
+require_once __DIR__.'/classes/PrestaShopAutoload.php';
